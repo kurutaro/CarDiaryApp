@@ -17,6 +17,9 @@
 		CE12403F2B216CA00032CD23 /* showViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12403E2B216CA00032CD23 /* showViewController.swift */; };
 		CE1240412B2179E40032CD23 /* DiaryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1240402B2179E40032CD23 /* DiaryModel.swift */; };
 		CE1240432B2184D50032CD23 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1240422B2184D50032CD23 /* PostViewController.swift */; };
+		CE12406C2B22C7E10032CD23 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE12406A2B22C7E10032CD23 /* MainTableViewCell.swift */; };
+		CE12406D2B22C7E10032CD23 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE12406B2B22C7E10032CD23 /* MainTableViewCell.xib */; };
+		CE1240742B23175E0032CD23 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CE1240732B23175E0032CD23 /* DetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +37,9 @@
 		CE12403E2B216CA00032CD23 /* showViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showViewController.swift; sourceTree = "<group>"; };
 		CE1240402B2179E40032CD23 /* DiaryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryModel.swift; sourceTree = "<group>"; };
 		CE1240422B2184D50032CD23 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
+		CE12406A2B22C7E10032CD23 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
+		CE12406B2B22C7E10032CD23 /* MainTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		CE1240732B23175E0032CD23 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,9 +96,12 @@
 				CE12402A2B2167380032CD23 /* AppDelegate.swift */,
 				CE12402C2B2167380032CD23 /* SceneDelegate.swift */,
 				CE12402E2B2167380032CD23 /* ViewController.swift */,
+				CE12406A2B22C7E10032CD23 /* MainTableViewCell.swift */,
+				CE12406B2B22C7E10032CD23 /* MainTableViewCell.xib */,
 				CE1240302B2167380032CD23 /* Main.storyboard */,
 				CE1240422B2184D50032CD23 /* PostViewController.swift */,
 				CE12403E2B216CA00032CD23 /* showViewController.swift */,
+				CE1240732B23175E0032CD23 /* DetailViewController.swift */,
 				CE1240332B2167390032CD23 /* Assets.xcassets */,
 				CE1240352B2167390032CD23 /* LaunchScreen.storyboard */,
 				CE1240382B2167390032CD23 /* Info.plist */,
@@ -162,6 +171,7 @@
 			files = (
 				CE1240372B2167390032CD23 /* LaunchScreen.storyboard in Resources */,
 				CE1240342B2167390032CD23 /* Assets.xcassets in Resources */,
+				CE12406D2B22C7E10032CD23 /* MainTableViewCell.xib in Resources */,
 				CE1240322B2167380032CD23 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -218,9 +228,11 @@
 				CE1240432B2184D50032CD23 /* PostViewController.swift in Sources */,
 				CE12402F2B2167380032CD23 /* ViewController.swift in Sources */,
 				CE1240412B2179E40032CD23 /* DiaryModel.swift in Sources */,
+				CE12406C2B22C7E10032CD23 /* MainTableViewCell.swift in Sources */,
 				CE12402B2B2167380032CD23 /* AppDelegate.swift in Sources */,
 				CE12402D2B2167380032CD23 /* SceneDelegate.swift in Sources */,
 				CE12403F2B216CA00032CD23 /* showViewController.swift in Sources */,
+				CE1240742B23175E0032CD23 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

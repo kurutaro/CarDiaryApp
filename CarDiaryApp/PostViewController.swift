@@ -9,7 +9,8 @@ import UIKit
 import RealmSwift
 import MapKit
 
-class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MKMapViewDelegate {
+class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MKMapViewDelegate, UITextFieldDelegate {
+//    @IBOutlet weak var itemField: UITextField!
     @IBOutlet weak var itemField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var contentField: UITextView!
@@ -33,12 +34,24 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         datePicker.locale = Locale.current
         contentField.layer.borderWidth = 1.0
         contentField.layer.borderColor = UIColor.black.cgColor
-        
+        itemField.delegate = self
         mapView.delegate = self
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         mapView.addGestureRecognizer(gestureRecognizer)
     }
     
+    //タイトルの文字数制限
+    @objc(textField:shouldChangeCharactersInRange:replacementString:) func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let text = textField.text else { return true }
+        let newText = (text as NSString).replacingCharacters(in: range, with: string)
+        
+        // 最大文字数を設定（例えば3文字）
+        let maxLength = 39
+        
+        // 入力された文字数が制限を超えていないか確認
+        return newText.count <= maxLength
+    }
+
     
     // 写真を選択するボタンがタップされた時の処理
     @IBAction func selectPhotoButton(_ sender: Any) {
@@ -52,12 +65,9 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         if let selectedImage = info[.originalImage] as? UIImage {
             // 画像を表示する
             imageView.image = selectedImage
-            // 画像をリサイズ
-            let resizedImage = resizeImage(image: selectedImage, targetSize: CGSize(width: 300, height: 300))
-            if let imageData = resizedImage.pngData() {
+            // 画像を圧縮してデータに変換
+            if let imageData = selectedImage.jpegData(compressionQuality: 1) {
                 diary.photoData = imageData
-                // 写真をRealmに保存する
-                //savePhotoToRealm(image: selectedImage)
             }
             dismiss(animated: true, completion: nil)
         }
@@ -77,9 +87,6 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     //保存ボタンが押された時の処理
-    
-    
-    
     @IBAction func onAdd(_ sender: Any) {
         
         diary.title = itemField.text!
@@ -97,7 +104,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
         
         // このcoordinateを使用して選択された位置情報を処理する
-        print(coordinate)
+        // print(coordinate)
         // 例えば、ピンを表示するなどの処理を行う
         addAnnotationToMap(coordinate: coordinate)
         //緯度経度を格納する
