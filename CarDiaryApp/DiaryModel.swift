@@ -6,12 +6,22 @@
 //
 
 import Foundation
-import UIKit
+import RealmSwift
 
-struct DiaryEntry {
-    var title: String
-    var date: Date
-    var content: String
-    var photo: UIImage? // オプショナルで写真を含む
-    var location: (latitude: Double, longitude: Double)? // オプショナルで位置情報を含む
+class DiaryModel:Object {
+    @objc dynamic var id = ""
+    @objc dynamic var title = ""
+    @objc dynamic var date = Date()
+    @objc dynamic var content = ""
+    @objc dynamic var photoData: Data?
+    @objc dynamic var latitude: Double = 0.0
+    @objc dynamic var longitude: Double = 0.0
+    
+    var photo: UIImage? {
+        if let data = photoData {
+            return UIImage(data: data)
+        }
+        return nil
+    }
 }
+
