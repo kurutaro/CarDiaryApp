@@ -9,7 +9,7 @@ import UIKit
 import RealmSwift
 import MapKit
 
-class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MKMapViewDelegate, UITextFieldDelegate {
+class PostViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, MKMapViewDelegate, UITextFieldDelegate, UITextViewDelegate {
 //    @IBOutlet weak var itemField: UITextField!
     @IBOutlet weak var itemField: UITextField!
     @IBOutlet weak var datePicker: UIDatePicker!
@@ -35,6 +35,7 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         contentField.layer.borderWidth = 1.0
         contentField.layer.borderColor = UIColor.black.cgColor
         itemField.delegate = self
+        contentField.delegate = self
         mapView.delegate = self
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(handleTap(_:)))
         mapView.addGestureRecognizer(gestureRecognizer)
@@ -51,6 +52,18 @@ class PostViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         // 入力された文字数が制限を超えていないか確認
         return newText.count <= maxLength
     }
+    
+    //コメントの文字数制限
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+            guard let currentText = textView.text else { return true }
+            let newText = (currentText as NSString).replacingCharacters(in: range, with: text)
+            
+            // 最大文字数を設定（例えば500文字）
+            let maxLength = 364
+            
+            // 入力された文字数が制限を超えていないか確認
+            return newText.count <= maxLength
+        }
 
     
     // 写真を選択するボタンがタップされた時の処理

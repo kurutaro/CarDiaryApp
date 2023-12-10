@@ -23,11 +23,11 @@ class showViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        print(selectedDiary?.latitude as Any)
         titleLabel.text = selectedDiary?.title
+        contentLabel.text = selectedDiary?.content
         
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd"
+        formatter.dateFormat = "yyyy/MM/dd"
         if let date = selectedDiary?.date {
             dateLabel.text = formatter.string(from: date)
         } else {

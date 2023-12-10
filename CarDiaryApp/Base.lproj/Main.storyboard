@@ -96,7 +96,7 @@
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="gML-qV-4cl">
+                                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="date" style="wheels" translatesAutoresizingMaskIntoConstraints="NO" id="gML-qV-4cl">
                                                 <rect key="frame" x="20" y="136" width="353" height="200"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="200" id="VNA-bK-xrD"/>

@@ -37,8 +37,6 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
         let cell = tableView.dequeueReusableCell(withIdentifier: "customCell", for: indexPath) as! MainTableViewCell
         let diary = diaryModel[indexPath.row]
         
-        
-        
         //タイトルを代入
         cell.title.text = diary.title
         cell.title.numberOfLines = 0
@@ -53,7 +51,7 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
         
         //日付を代入
         let formatter = DateFormatter()
-        formatter.dateFormat = "MM/dd"
+        formatter.dateFormat = "yyyy/MM/dd"
         cell.date.text = formatter.string(from: diary.date)
         
         return cell
