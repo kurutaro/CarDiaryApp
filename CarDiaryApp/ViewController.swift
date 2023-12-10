@@ -59,14 +59,13 @@ class ViewController: UIViewController , UITableViewDelegate, UITableViewDataSou
         return cell
     }
     
-
-//        self.present(self.storyboard!.instantiateViewController(withIdentifier: "showView"), animated: true, completion: nil)
-    
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        if let viewController = storyboard?.instantiateViewController(withIdentifier: "showView") {
-            self.navigationController?.pushViewController(viewController, animated: true)
-        }
+        let viewController = self.storyboard?.instantiateViewController(withIdentifier: "showView") as? showViewController
+        let selectedDiary = diaryModel[indexPath.row]
+        viewController!.selectedDiary = selectedDiary
+        self.navigationController?.pushViewController(viewController!, animated: true)
+        
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
